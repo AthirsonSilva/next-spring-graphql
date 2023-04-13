@@ -1,6 +1,6 @@
 package spring.graphql.modules.product;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -12,15 +12,14 @@ import java.util.UUID;
 import static java.util.Optional.of;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
-import static org.mockito.Mockito.times;
 
 @ExtendWith(MockitoExtension.class)
-class ProductControllerTest {
+public class ProductControllerTest {
     @Mock
     private ProductRepository productRepository;
 
     @Test
-    void products() {
+    public void products() {
         ProductEntity firstProduct = new ProductEntity();
         ProductEntity secondProduct = new ProductEntity();
 
@@ -44,7 +43,7 @@ class ProductControllerTest {
     }
 
     @Test
-    void product() {
+    public void product() {
         ProductEntity productEntity = new ProductEntity();
 
         productEntity.setName("test");
@@ -60,7 +59,7 @@ class ProductControllerTest {
     }
 
     @Test
-    void createProduct() {
+    public void createProduct() {
         ProductEntity productEntity = new ProductEntity();
 
         productEntity.setName("test");
@@ -76,7 +75,7 @@ class ProductControllerTest {
     }
 
     @Test
-    void updateProduct() {
+    public void updateProduct() {
         ProductEntity productEntity = new ProductEntity();
 
         productEntity.setName("test");
@@ -102,7 +101,7 @@ class ProductControllerTest {
     }
 
     @Test
-    void deleteProduct() {
+    public void deleteProduct() {
         ProductEntity productEntity = new ProductEntity();
 
         productEntity.setName("test");
