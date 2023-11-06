@@ -1,4 +1,4 @@
-package spring.graphql.modules.category;
+package com.nextspring.modules.category;
 
 import java.util.UUID;
 
@@ -15,8 +15,10 @@ public class CategoryController {
 	private final CategoryRepository categoryRepository;
 
 	@MutationMapping
-	CategoryEntity addCategory(@Argument CategoryInput category) {
-		return categoryRepository.save(new CategoryEntity(category.name()));
+	CategoryEntity addCategory(@Argument CategoryInput input) {
+		CategoryEntity categoryEntity = new CategoryEntity(UUID.randomUUID(), input.name());
+
+		return categoryRepository.save(categoryEntity);
 	}
 
 	@QueryMapping
