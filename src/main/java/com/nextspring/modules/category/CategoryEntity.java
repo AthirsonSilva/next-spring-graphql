@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Document
+@Document("categories")
 public class CategoryEntity {
 	private UUID id;
 	private String name;

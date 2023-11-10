@@ -15,19 +15,19 @@ public class CategoryController {
 	private final CategoryRepository categoryRepository;
 
 	@MutationMapping
-	CategoryEntity addCategory(@Argument CategoryInput input) {
-		CategoryEntity categoryEntity = new CategoryEntity(UUID.randomUUID(), input.name());
+	CategoryEntity addCategory(@Argument CategoryInput category) {
+		CategoryEntity categoryEntity = new CategoryEntity(UUID.randomUUID(), category.name());
 
 		return categoryRepository.save(categoryEntity);
 	}
 
 	@QueryMapping
-	Iterable<CategoryEntity> categories() {
+	Iterable<CategoryEntity> getCategories() {
 		return categoryRepository.findAll();
 	}
 
 	@QueryMapping
-	CategoryEntity category(@Argument UUID id) {
+	CategoryEntity findCategoryById(@Argument UUID id) {
 		return categoryRepository.findById(id).orElseThrow();
 	}
 
@@ -41,6 +41,4 @@ public class CategoryController {
 		categoryRepository.deleteById(id);
 	}
 
-	record CategoryInput(String name) {
-	}
 }

@@ -1,20 +1,20 @@
 type Mutation {
 	addCategory(category: CategoryInput!): Category
-	addProduct(product: ProductInput!): Product
+	addGame(game: gameInput!): game
 }
 
 type Query {
-	categoryById(id: ID!): Category
-	categories: [Category]
-	productById(id: ID!): Product
-	products: [Product]
+	findCategoryById(id: ID!): Category
+	getCategories: [Category]
+	findGameById(id: ID!): game
+	getGames: [game]
 }
 
 input CategoryInput {
 	name: String!
 }
 
-input ProductInput {
+input gameInput {
 	name: String!
 	price: Float!
 	categoryId: ID!
@@ -25,7 +25,7 @@ type Category {
 	name: String!
 }
 
-type Product {
+type game {
 	id: ID!
 	name: String!
 	price: Float!
