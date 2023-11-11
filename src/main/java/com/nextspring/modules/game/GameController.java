@@ -31,8 +31,8 @@ public class GameController {
 	}
 
 	@MutationMapping
-	public GameEntity updateGame(@Argument GameInput game) {
-		return gameService.updateGame(game);
+	public GameEntity updateGame(@Argument UUID id, @Argument GameInput game) {
+		return gameService.updateGame(id, game);
 	}
 
 	@MutationMapping

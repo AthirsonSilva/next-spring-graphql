@@ -12,33 +12,32 @@ import lombok.RequiredArgsConstructor;
 @Controller
 @RequiredArgsConstructor
 public class CategoryController {
-	private final CategoryRepository categoryRepository;
+
+	private final CategoryService categoryService;
 
 	@MutationMapping
 	CategoryEntity addCategory(@Argument CategoryInput category) {
-		CategoryEntity categoryEntity = new CategoryEntity(UUID.randomUUID(), category.name());
-
-		return categoryRepository.save(categoryEntity);
+		return categoryService.addCategory(category);
 	}
 
 	@QueryMapping
 	Iterable<CategoryEntity> getCategories() {
-		return categoryRepository.findAll();
+		return categoryService.getCategories();
 	}
 
 	@QueryMapping
 	CategoryEntity findCategoryById(@Argument UUID id) {
-		return categoryRepository.findById(id).orElseThrow();
+		return categoryService.findCategoryById(id);
 	}
 
-	@QueryMapping
-	CategoryEntity updateCategory(@Argument UUID id) {
-		return categoryRepository.findById(id).orElseThrow();
+	@MutationMapping
+	CategoryEntity updateCategory(@Argument UUID id, @Argument CategoryInput category) {
+		return categoryService.updateCategory(id, category);
 	}
 
 	@MutationMapping
 	void deleteCategory(@Argument UUID id) {
-		categoryRepository.deleteById(id);
+		categoryService.deleteCategory(id);
 	}
 
 }
