@@ -1,38 +1,39 @@
 type Mutation {
-	addCategory(category: CategoryInput!): Category
-	updateCategory(id: ID!, category: CategoryInput!): Category
-	deleteCategory(id: ID!): Boolean
+    addCategory(category: CategoryInput!): Category
+    updateCategory(id: ID!, category: CategoryInput!): Category
+    deleteCategory(id: ID!): Boolean
 
-	addGame(game: gameInput!): game
-	updateGame(id: ID!, game: gameInput!): game
-	deleteGame(id: ID!): Boolean
+    addGame(game: gameInput!): game
+    updateGame(id: ID!, game: gameInput!): game
+    deleteGame(id: ID!): Boolean
 }
 
 type Query {
-	findCategoryById(id: ID!): Category
-	getCategories: [Category]
-	findGameById(id: ID!): game
-	getGames: [game]
+    findCategoryById(id: ID!): Category
+    getCategories: [Category]
+    findGameById(id: ID!): game
+    getGames: [game]
 }
 
 input CategoryInput {
-	name: String!
+    name: String!
 }
 
 input gameInput {
-	name: String!
-	price: Float!
-	categoryId: ID!
+    name: String!
+    price: Float!
+    categoryId: ID!
 }
 
 type Category {
-	id: ID!
-	name: String!
+    id: ID!
+    name: String!
 }
 
 type game {
-	id: ID!
-	name: String!
-	price: Float!
-	category: Category!
+    id: ID!
+    name: String!
+    price: Float!
+    category: Category!
 }
+
